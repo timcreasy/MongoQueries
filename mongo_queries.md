@@ -25,3 +25,5 @@ db.restaurants.find({"address.street": /Broadway/}, { grades: { $slice: 2 }, nam
 ##Provide a query to find all of the restaurants in Brooklynn and list only the 21st-30th results when ordered alphabetically by name.
 db.restaurants.find({borough: "Brooklyn", name: /^[A-Za-z][A-Za-z0-9]/}, {name: 1}).sort({"name": 1}).skip(20).limit(10)
 
+##Provide a query that returns all pizza and Italian restaurants in reverse alphabetic order.
+db.restaurants.find({cuisine: /Pizza|pizza|Italian|italian/}).sort({name: 1})
